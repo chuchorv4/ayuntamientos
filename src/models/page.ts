@@ -5,7 +5,6 @@ export interface Page extends Document {
   url: string
   ayuntamiento: string
   type: string
-  content: string
 }
 
 const PageSchema = new Schema ({
@@ -25,9 +24,6 @@ const PageSchema = new Schema ({
   type: {
     type: String,
     required: true
-  },
-  content: {
-    type: String
   }
 }, {
   versionKey: false

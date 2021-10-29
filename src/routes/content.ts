@@ -1,10 +1,10 @@
-import Validator from '../validators/page'
-import { PageModel } from '../models/page'
+import Validator from '../validators/content'
+import { ContentModel } from '../models/content'
 import Generic from '../controllers'
 import CRUD from './crud'
 
 const v = new Validator()
-const controller = new Generic(PageModel, ['title','type'])
+const controller = new Generic(ContentModel, ['cotent','page'])
 const crud = new CRUD('pages', controller, v)
 const router = crud.getRouter()
 
