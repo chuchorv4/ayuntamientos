@@ -4,7 +4,7 @@ import Generic from '../controllers'
 import CRUD from './crud'
 
 const v = new Validator()
-const controller = new Generic(ContentModel, ['cotent','page'])
+const controller = new Generic(ContentModel, ['content','page'])
 const crud = new CRUD('pages', controller, v)
 const router = crud.getRouter()
 

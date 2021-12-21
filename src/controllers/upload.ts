@@ -12,15 +12,20 @@ export default class Uploader {
 
   constructor (fieldName: string, pathDir: string, publicPath: string) {
     this.publicPath = publicPath
+    console.log(publicPath)
     this.storage = multer.diskStorage({
       destination: function (req, file, cb) {
         cb(null, path.join(__dirname, pathDir))
       },
       filename: function (req, file, cb) {
         let fileName = file.originalname.split('.')
+        console.log(fieldName)
         let fileExt = fileName[fileName.length - 1]
+        console.log(fileExt)
         let ayuntamientoID = (typeof req.user != 'undefined' && typeof req.user['ayuntamiento'] != 'undefined') ? req.user['ayuntamiento'] : ''
+        console.log(ayuntamientoID)
         let date = Date.now()
+        console.log(date)
         cb(null, `${ ayuntamientoID }_${ date }${(Math.random() * 10000).toFixed().padStart(4,'0')}.${fileExt}`)
       }
     })
@@ -40,12 +45,13 @@ export default class Uploader {
     }
     this.uploader(req, res, (err) => {
       if (typeof err != 'undefined') {
+        console.log(err)
         next(new CustomError(err, BAD_REQUEST))
       } else {
         res.send({
           success: 1,
           file: {
-            url: `.${ this.publicPath }/${ req.file?.filename }`
+            url: `${ this.publicPath }/${ req.file?.filename }`
           }
         })
       }

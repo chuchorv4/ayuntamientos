@@ -11,10 +11,17 @@ const ContentSchema = new Schema ({
     required: true
   },
   page: {
-    type: Schema.Types.ObjectId,
-    ref: 'Page',
-    required: true
-  }
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true,
+  },
+  ayuntamiento: {
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true,
+  },
 }, {
   versionKey: false
 })
