@@ -17,9 +17,15 @@ export default class Generic {
     return Object.assign(entrada, defaultFilter)
   }
 
-  private getAyuntamiento = (param): boolean => {
+  private getAyuntamiento = (param): string | boolean => {
     if (typeof param != 'undefined' && typeof param.ayuntamientoID != 'undefined') {
-      return param.ayuntamientoID
+      let ayuntamiento = ''
+      if (param.ayuntamientoID.includes('www')) {
+        ayuntamiento = param.ayuntamientoID.replace('www.', '')
+      } else {
+        ayuntamiento = param.ayuntamientoID
+      }
+      return ayuntamiento
     }
     return false
   }
