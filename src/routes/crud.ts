@@ -13,6 +13,7 @@ export default class CRUD {
 
     this.router.route('/')
       .get(controller.all)
+      .post(controller.all)
 
     this.router.route('/count')
       .get(controller.count)
