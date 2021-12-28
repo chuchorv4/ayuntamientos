@@ -14,7 +14,11 @@ export default class Generic {
 
   private setFilter = (entrada: any, defaultFilter: any): any => {
     if (typeof entrada == 'undefined') return defaultFilter
-    return Object.assign(entrada, defaultFilter)
+    if (entrada.length == 0) return defaultFilter
+    entrada.push(defaultFilter)
+    return {
+      $and: entrada
+    }
   }
 
   private getAyuntamiento = (param): string | boolean => {
