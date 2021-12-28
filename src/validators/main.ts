@@ -12,6 +12,10 @@ export default class Main implements Validator {
     const schema = Joi.object({
       title: Joi.string().required(),
       logo: Joi.string(),
+      correo: Joi.string(),
+      direccion: Joi.string(),
+      telefono: Joi.string(),
+      facebook: Joi.string(),
     })
     const { error } = schema.validate(req.body, { abortEarly: false });
     (error) ? next(new CustomError(error, httpStatus.BAD_REQUEST)) : next()
@@ -21,6 +25,10 @@ export default class Main implements Validator {
     const schema = Joi.object({
       title: Joi.string(),
       logo: Joi.string,
+      correo: Joi.string,
+      direccion: Joi.string,
+      telefono: Joi.string,
+      facebook: Joi.string,
     })
     const { error } = schema.validate(req.body, { abortEarly: false });
     (error) ? next(new CustomError(error, httpStatus.BAD_REQUEST)) : next()
