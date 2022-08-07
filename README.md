@@ -3,5 +3,7 @@
 
 
 run:
-  -npm run webpack
-  -npm start
+```
+  npm run webpack
+  npm start
+```
